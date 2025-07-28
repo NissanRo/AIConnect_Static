@@ -5,72 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Connect Intern Project Opportunities – AI & Automation 2025</title>
     <style>
-        /* --- General Body & Font Styles --- */
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            background-color: #111827; /* Tailwind's bg-gray-900 */
-            color: #d1d5db; /* Tailwind's text-gray-300 */
+        /* --- CSS Reset & Base Styles --- */
+        :root {
+            --bg-color: #111827;
+            --card-bg-color: #1f2937;
+            --border-color: #374151;
+            --text-primary: #d1d5db;
+            --text-secondary: #9ca3af;
+            --text-white: #ffffff;
+            --accent-blue: #3b82f6;
+            --accent-blue-dark: #1d4ed8;
+        }
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
             line-height: 1.6;
         }
 
-        /* --- Container & Layout --- */
+        /* --- Layout & Container --- */
         .container {
-            width: 100%;
-            max-width: 1280px; /* Corresponds to container max-width */
-            margin-left: auto;
-            margin-right: auto;
-            padding: 1rem;
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
         }
-        
+
         /* --- Header & Brand --- */
         .header {
             text-align: center;
-            margin-top: 3rem;
-            margin-bottom: 3rem;
+            padding: 4rem 0;
         }
         .brand-title {
-            font-size: 2.25rem; /* Tailwind's text-4xl */
-            font-weight: 900; /* Tailwind's font-black */
+            font-size: clamp(2.5rem, 8vw, 4rem); /* Responsive font size */
+            font-weight: 900;
             background: linear-gradient(to right, #3b82f6, #f97316, #10b981, #ec4899);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
         }
         .brand-subtitle {
-            margin-top: 1rem;
-            font-size: 1.25rem; /* Tailwind's text-xl */
-            font-weight: 300; /* Tailwind's font-light */
-            color: #9ca3af; /* Tailwind's text-gray-400 */
+            font-size: clamp(1.1rem, 4vw, 1.5rem);
+            font-weight: 300;
+            color: var(--text-secondary);
         }
 
         /* --- Generic Card Style --- */
         .card {
-            background-color: #1f2937; /* Tailwind's bg-gray-800 */
-            border: 1px solid #374151; /* Tailwind's border-gray-700 */
-            border-radius: 0.5rem; /* Tailwind's rounded-lg */
-            padding: 2rem;
-            margin-top: 3rem;
-            margin-bottom: 3rem;
+            background-color: var(--card-bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
         }
         .card-title {
-            font-size: 1.875rem; /* Tailwind's text-3xl */
-            font-weight: 700; /* Tailwind's font-bold */
-            color: #ffffff;
-            margin-bottom: 1rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+            text-align: center;
         }
 
         /* --- About Section Specifics --- */
         .about-list {
-            list-style-type: disc;
             list-style-position: inside;
-            padding-left: 0;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
         .about-list li {
             margin-bottom: 1rem;
@@ -78,30 +88,30 @@
         .about-list strong {
             font-weight: 600;
         }
-        .text-blue-400 { color: #60a5fa; }
-        .text-pink-400 { color: #f472b6; }
-        .text-green-400 { color: #4ade80; }
+        .text-blue { color: #60a5fa; }
+        .text-pink { color: #f472b6; }
+        .text-green { color: #4ade80; }
 
         /* --- Projects Grid --- */
         .projects-grid {
             display: grid;
-            gap: 2rem;
-            grid-template-columns: 1fr; /* Default to 1 column */
+            gap: 1.5rem;
+            grid-template-columns: 1fr;
         }
 
         /* --- Project Card Specifics --- */
         .project-card {
-            background-color: #1f2937;
-            border-radius: 0.5rem;
+            background-color: var(--card-bg-color);
+            border-radius: 0.75rem;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            border: 1px solid #374151;
+            border: 1px solid var(--border-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
         }
         .project-thumbnail {
             height: 12rem;
@@ -109,8 +119,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--text-white);
             text-align: center;
+            padding: 1rem;
         }
         .project-thumbnail-main-text {
             font-size: 2.25rem;
@@ -122,37 +133,36 @@
             font-size: 0.75rem;
             margin-top: 0.25rem;
             opacity: 0.75;
+            word-break: break-all;
         }
         .project-content {
             padding: 1.5rem;
             flex-grow: 1;
-            display: flex;
-            flex-direction: column;
         }
         .project-title {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 0.5rem;
+            color: var(--text-white);
+            margin-bottom: 0.75rem;
         }
         .project-section-title {
             font-weight: 600;
-            color: #d1d5db;
+            color: var(--text-primary);
+            margin-top: 1rem;
             margin-bottom: 0.5rem;
         }
         .project-list {
-            list-style-type: disc;
             list-style-position: inside;
-            color: #9ca3af;
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
         .project-list li { margin-bottom: 0.25rem; }
         .project-tools {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-bottom: 1rem;
+            margin-top: 0.5rem;
         }
         .tool-tag {
             background-color: #374151;
@@ -163,87 +173,90 @@
             border-radius: 9999px;
         }
         .project-scope {
-            font-size: 0.875rem;
-            color: #9ca3af;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
             font-style: italic;
         }
 
         /* --- Form Styles --- */
         .form-grid {
             display: grid;
-            gap: 1.5rem;
-            grid-template-columns: 1fr;
+            gap: 1rem;
         }
-        .form-group { margin-bottom: 1rem; }
+        .form-group { margin-bottom: 0.5rem; }
         .form-label {
             display: block;
-            color: #d1d5db;
             font-size: 0.875rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
         .form-input, .form-select {
             width: 100%;
-            background-color: #374151; /* bg-gray-700 */
-            border: 1px solid #4b5563; /* border-gray-600 */
+            background-color: #374151;
+            border: 1px solid #4b5563;
             border-radius: 0.375rem;
-            padding: 0.5rem 0.75rem;
-            color: #ffffff;
-            line-height: 1.5;
+            padding: 0.75rem;
+            color: var(--text-white);
+            font-size: 1rem;
         }
         .form-input:focus, .form-select:focus {
-            outline: 2px solid transparent;
-            outline-offset: 2px;
-            border-color: #3b82f6; /* ring-blue-500 */
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 2px var(--accent-blue);
         }
         .form-radio-group { display: flex; align-items: center; gap: 1.5rem; margin-top: 0.5rem; }
         .form-radio-label { display: flex; align-items: center; cursor: pointer; }
         input[type="radio"] {
             -webkit-appearance: none; appearance: none;
-            background-color: #374151; margin: 0; font: inherit; color: currentColor;
-            width: 1.15em; height: 1.15em; border: 0.15em solid #4b5563;
-            border-radius: 50%; transform: translateY(-0.075em);
-            display: inline-grid; place-content: center; margin-right: 0.5rem;
+            background-color: #374151;
+            width: 1.25em; height: 1.25em;
+            border: 2px solid #4b5563;
+            border-radius: 50%;
+            display: grid;
+            place-content: center;
+            margin-right: 0.5rem;
         }
         input[type="radio"]::before {
-            content: ""; width: 0.65em; height: 0.65em; border-radius: 50%;
-            transform: scale(0); transition: 120ms transform ease-in-out;
-            box-shadow: inset 1em 1em #3b82f6;
+            content: "";
+            width: 0.75em; height: 0.75em;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            background-color: var(--accent-blue);
         }
+        input[type="radio"]:checked { border-color: var(--accent-blue); }
         input[type="radio"]:checked::before { transform: scale(1); }
 
         /* --- Button Styles --- */
         .btn-submit {
-            background-color: #2563eb; /* bg-blue-600 */
+            background-color: var(--accent-blue);
             color: white;
             font-weight: 700;
             padding: 0.75rem 2rem;
             border-radius: 0.5rem;
             border: none;
             cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
             transition: background-color 0.3s, transform 0.2s;
         }
         .btn-submit:hover {
-            background-color: #1d4ed8; /* hover:bg-blue-700 */
-            transform: scale(1.05);
+            background-color: var(--accent-blue-dark);
+            transform: scale(1.02);
         }
 
         /* --- Footer --- */
-        .footer { text-align: center; margin-top: 4rem; margin-bottom: 4rem; }
+        .footer { text-align: center; padding: 2rem 0; }
         .footer-link { color: #60a5fa; text-decoration: underline; }
 
         /* --- Responsive Media Queries --- */
-        @media (min-width: 768px) { /* Tailwind's 'md' breakpoint */
-            .brand-title { font-size: 3.75rem; /* md:text-6xl */ }
-            .brand-subtitle { font-size: 1.5rem; /* md:text-2xl */ }
-            .projects-grid { grid-template-columns: repeat(2, 1fr); }
-            .form-grid { grid-template-columns: repeat(2, 1fr); }
-            .form-group-span-2 { grid-column: span 2 / span 2; }
+        @media (min-width: 768px) {
+            .card { padding: 2rem; }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .form-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+            .form-group-span-2 { grid-column: span 2; }
+            .btn-submit { width: auto; }
         }
-        @media (min-width: 1024px) { /* Tailwind's 'lg' breakpoint */
-            .container { padding: 2rem; }
-        }
-
     </style>
 </head>
 <body>
@@ -253,7 +266,7 @@
         <!-- Header -->
         <header class="header">
             <h1 class="brand-title">AI Connect</h1>
-            <p class="brand-subtitle">AI & Automation Intern Projects – 2025</p>
+            <p class="brand-subtitle"> <i>FinStreet Accelerator presents </i> <br> <b> AI & Automation Intern Projects – 2025 </b></p>
         </header>
 
         <!-- About Section -->
@@ -263,12 +276,12 @@
                 FinStreet Accelerator is a fast-growing digital-first company incubating multiple ventures in the EdTech and IT Services space. Three of our prominent brands include:
             </p>
             <ul class="about-list">
-                <li><strong class="text-blue-400">Prepedemy</strong> – A soon-to-be-launched test preparation platform catering to IELTS, GMAT, GRE, and TOEFL aspirants.</li>
-                <li><strong class="text-pink-400">Saloneur</strong> – A mobile-first service marketplace for salon and spa experiences, currently under active development.</li>
-                <li><strong class="text-green-400">FinStreet Education</strong> – A leading coaching provider for professional finance certifications like US CMA and CFA.</li>
+                <li><strong class="text-blue">Prepedemy</strong> : A soon-to-be-launched test preparation platform catering to IELTS, GMAT, GRE, and TOEFL aspirants.</li>
+                <li><strong class="text-pink">Saloneur</strong> : A mobile-first service marketplace for salon and spa experiences, currently under active development.</li>
+                <li><strong class="text-green">FinStreet Education</strong> : A leading coaching provider for professional finance certifications like US CMA and CFA.</li>
             </ul>
             <p style="margin-top: 1.5rem;">
-                We are currently inviting applications from motivated and tech-savvy students for one-year live project internships.<br> <br> Selected candidates will work on cutting-edge use cases in AI and automation, contributing directly to the digital foundation of these startups. <br><br> Note: <br> <i> * Only Top 50 applicants would be selected every month. </i>
+                We are currently inviting applications from motivated and tech-savvy students for one-year live project internships.<br> <br> Selected candidates will work on cutting-edge use cases in AI and automation, contributing directly to the digital foundation of these startups.
             </p>
         </section>
 
@@ -287,9 +300,9 @@
         
         <!-- Interest Form -->
         <section class="card">
-            <h2 class="card-title" style="text-align: center;">Express Your Interest</h2>
+            <h2 class="card-title">Express Your Interest</h2>
             <!-- Note: This form requires an internet connection to submit successfully to Formspree. -->
-            <form id="interestForm" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
+            <form id="interestForm" action="https://formspree.io/f/mwpqorgp" method="POST">
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="internName" class="form-label">Full Name</label>
@@ -407,29 +420,26 @@
                     const projectCard = document.createElement('div');
                     projectCard.className = 'project-card';
                     projectCard.innerHTML = `
-                        <div class="project-thumbnail" style="background-image: ${colorStyle};">
+                        <div class="project-thumbnail" style="background: ${colorStyle};">
                             <span class="project-thumbnail-main-text">Project ${project.id}</span>
                             <span class="project-thumbnail-sub-text">${project.uid}</span>
                         </div>
                         <div class="project-content">
                             <h3 class="project-title">${project.title}</h3>
-                            <p style="margin-bottom: 1rem;"><strong style="color: #d1d5db;">Objective:</strong> ${project.objective}</p>
-                            <div style="margin-bottom: 1rem;">
-                                <h4 class="project-section-title">Deliverables:</h4>
-                                <ul class="project-list">
-                                    ${project.deliverables.map(d => `<li>${d}</li>`).join('')}
-                                </ul>
+                            <p><strong style="color: var(--text-primary);">Objective:</strong> ${project.objective}</p>
+                            
+                            <h4 class="project-section-title">Deliverables:</h4>
+                            <ul class="project-list">
+                                ${project.deliverables.map(d => `<li>${d}</li>`).join('')}
+                            </ul>
+                            
+                            <h4 class="project-section-title">Preferred Tools:</h4>
+                            <div class="project-tools">
+                                ${project.tools.map(t => `<span class="tool-tag">${t}</span>`).join('')}
                             </div>
-                            <div style="margin-bottom: 1rem;">
-                                <h4 class="project-section-title">Preferred Tools:</h4>
-                                <div class="project-tools">
-                                    ${project.tools.map(t => `<span class="tool-tag">${t}</span>`).join('')}
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="project-section-title">Long-Term Scope:</h4>
-                                <p class="project-scope">${project.longTermScope}</p>
-                            </div>
+                            
+                            <h4 class="project-section-title">Long-Term Scope:</h4>
+                            <p class="project-scope">${project.longTermScope}</p>
                         </div>
                     `;
                     projectsGrid.appendChild(projectCard);
