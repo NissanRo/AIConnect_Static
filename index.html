@@ -1,31 +1,458 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Connect Intern Project Opportunities – AI & Automation 2025</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      -webkit-background-clip: text;
-      background-clip: text; /* ✅ standard property added */
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Connect Intern Project Opportunities – AI & Automation 2025</title>
+    <style>
+        /* --- General Body & Font Styles --- */
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            background-color: #111827; /* Tailwind's bg-gray-900 */
+            color: #d1d5db; /* Tailwind's text-gray-300 */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* --- Container & Layout --- */
+        .container {
+            width: 100%;
+            max-width: 1280px; /* Corresponds to container max-width */
+            margin-left: auto;
+            margin-right: auto;
+            padding: 1rem;
+        }
+        
+        /* --- Header & Brand --- */
+        .header {
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+        .brand-title {
+            font-size: 2.25rem; /* Tailwind's text-4xl */
+            font-weight: 900; /* Tailwind's font-black */
+            background: linear-gradient(to right, #3b82f6, #f97316, #10b981, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .brand-subtitle {
+            margin-top: 1rem;
+            font-size: 1.25rem; /* Tailwind's text-xl */
+            font-weight: 300; /* Tailwind's font-light */
+            color: #9ca3af; /* Tailwind's text-gray-400 */
+        }
+
+        /* --- Generic Card Style --- */
+        .card {
+            background-color: #1f2937; /* Tailwind's bg-gray-800 */
+            border: 1px solid #374151; /* Tailwind's border-gray-700 */
+            border-radius: 0.5rem; /* Tailwind's rounded-lg */
+            padding: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            font-size: 1.875rem; /* Tailwind's text-3xl */
+            font-weight: 700; /* Tailwind's font-bold */
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        /* --- About Section Specifics --- */
+        .about-list {
+            list-style-type: disc;
+            list-style-position: inside;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+        .about-list li {
+            margin-bottom: 1rem;
+        }
+        .about-list strong {
+            font-weight: 600;
+        }
+        .text-blue-400 { color: #60a5fa; }
+        .text-pink-400 { color: #f472b6; }
+        .text-green-400 { color: #4ade80; }
+
+        /* --- Projects Grid --- */
+        .projects-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr; /* Default to 1 column */
+        }
+
+        /* --- Project Card Specifics --- */
+        .project-card {
+            background-color: #1f2937;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #374151;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        }
+        .project-thumbnail {
+            height: 12rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .project-thumbnail-main-text {
+            font-size: 2.25rem;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+        }
+        .project-thumbnail-sub-text {
+            font-family: monospace;
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+            opacity: 0.75;
+        }
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+        .project-section-title {
+            font-weight: 600;
+            color: #d1d5db;
+            margin-bottom: 0.5rem;
+        }
+        .project-list {
+            list-style-type: disc;
+            list-style-position: inside;
+            color: #9ca3af;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        .project-list li { margin-bottom: 0.25rem; }
+        .project-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .tool-tag {
+            background-color: #374151;
+            color: #93c5fd;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 0.625rem;
+            border-radius: 9999px;
+        }
+        .project-scope {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            font-style: italic;
+        }
+
+        /* --- Form Styles --- */
+        .form-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: 1fr;
+        }
+        .form-group { margin-bottom: 1rem; }
+        .form-label {
+            display: block;
+            color: #d1d5db;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .form-input, .form-select {
+            width: 100%;
+            background-color: #374151; /* bg-gray-700 */
+            border: 1px solid #4b5563; /* border-gray-600 */
+            border-radius: 0.375rem;
+            padding: 0.5rem 0.75rem;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+        .form-input:focus, .form-select:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            border-color: #3b82f6; /* ring-blue-500 */
+        }
+        .form-radio-group { display: flex; align-items: center; gap: 1.5rem; margin-top: 0.5rem; }
+        .form-radio-label { display: flex; align-items: center; cursor: pointer; }
+        input[type="radio"] {
+            -webkit-appearance: none; appearance: none;
+            background-color: #374151; margin: 0; font: inherit; color: currentColor;
+            width: 1.15em; height: 1.15em; border: 0.15em solid #4b5563;
+            border-radius: 50%; transform: translateY(-0.075em);
+            display: inline-grid; place-content: center; margin-right: 0.5rem;
+        }
+        input[type="radio"]::before {
+            content: ""; width: 0.65em; height: 0.65em; border-radius: 50%;
+            transform: scale(0); transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em #3b82f6;
+        }
+        input[type="radio"]:checked::before { transform: scale(1); }
+
+        /* --- Button Styles --- */
+        .btn-submit {
+            background-color: #2563eb; /* bg-blue-600 */
+            color: white;
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .btn-submit:hover {
+            background-color: #1d4ed8; /* hover:bg-blue-700 */
+            transform: scale(1.05);
+        }
+
+        /* --- Footer --- */
+        .footer { text-align: center; margin-top: 4rem; margin-bottom: 4rem; }
+        .footer-link { color: #60a5fa; text-decoration: underline; }
+
+        /* --- Responsive Media Queries --- */
+        @media (min-width: 768px) { /* Tailwind's 'md' breakpoint */
+            .brand-title { font-size: 3.75rem; /* md:text-6xl */ }
+            .brand-subtitle { font-size: 1.5rem; /* md:text-2xl */ }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .form-grid { grid-template-columns: repeat(2, 1fr); }
+            .form-group-span-2 { grid-column: span 2 / span 2; }
+        }
+        @media (min-width: 1024px) { /* Tailwind's 'lg' breakpoint */
+            .container { padding: 2rem; }
+        }
+
+    </style>
 </head>
+<body>
 
-<body class="bg-gray-50 text-gray-900">
-  <div id="app">
-    <!-- App Layout Starts Here -->
-    <!-- Header Section -->
-    <!-- About, Projects, Admin Area, Modals, JS scripts -->
-  </div>
+    <div class="container">
 
-  <script>
-    // All JavaScript code is embedded here (admin login, CRUD for projects, sync with dropdown)
-  </script>
+        <!-- Header -->
+        <header class="header">
+            <h1 class="brand-title">AI Connect</h1>
+            <p class="brand-subtitle">AI & Automation Intern Projects – 2025</p>
+        </header>
+
+        <!-- About Section -->
+        <section class="card">
+            <h2 class="card-title">About Us</h2>
+            <p>
+                FinStreet Accelerator is a fast-growing digital-first company incubating multiple ventures in the EdTech and IT Services space. Three of our prominent brands include:
+            </p>
+            <ul class="about-list">
+                <li><strong class="text-blue-400">Prepedemy</strong> – A soon-to-be-launched test preparation platform catering to IELTS, GMAT, GRE, and TOEFL aspirants.</li>
+                <li><strong class="text-pink-400">Saloneur</strong> – A mobile-first service marketplace for salon and spa experiences, currently under active development.</li>
+                <li><strong class="text-green-400">FinStreet Education</strong> – A leading coaching provider for professional finance certifications like US CMA and CFA.</li>
+            </ul>
+            <p style="margin-top: 1.5rem;">
+                We are currently inviting applications from motivated and tech-savvy students for one-year live project internships.<br> <br> Selected candidates will work on cutting-edge use cases in AI and automation, contributing directly to the digital foundation of these startups. <br><br> Note: <br> <i> * Only Top 50 applicants would be selected every month. </i>
+            </p>
+        </section>
+
+        <!-- Internship Overview -->
+        <section style="text-align: center; margin: 3rem auto;">
+            <h2 class="card-title">Internship Opportunity: AI & Automation Projects</h2>
+            <p>
+                Each project has clearly defined deliverables and a long-term roadmap. Interns will contribute to building MVPs and full-scale implementations.
+            </p>
+        </section>
+        
+        <!-- Projects Grid -->
+        <div id="projectsGrid" class="projects-grid">
+            <!-- Project cards will be injected here by JavaScript -->
+        </div>
+        
+        <!-- Interest Form -->
+        <section class="card">
+            <h2 class="card-title" style="text-align: center;">Express Your Interest</h2>
+            <!-- Note: This form requires an internet connection to submit successfully to Formspree. -->
+            <form id="interestForm" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="internName" class="form-label">Full Name</label>
+                        <input type="text" id="internName" name="Full Name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location" class="form-label">Current Location</label>
+                        <input type="text" id="location" name="Location" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="specialization" class="form-label">Education Specialization</label>
+                        <input type="text" id="specialization" name="Specialization" class="form-input" placeholder="e.g., Computer Science" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gradYear" class="form-label">Graduation Year</label>
+                        <input type="number" id="gradYear" name="Graduation Year" class="form-input" min="2023" max="2030" placeholder="e.g., 2025" required>
+                    </div>
+                    <div class="form-group form-group-span-2">
+                        <label for="college" class="form-label">College / Institute Name</label>
+                        <input type="text" id="college" name="College" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactNumber" class="form-label">Contact Number</label>
+                        <input type="tel" id="contactNumber" name="Contact Number" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email ID</label>
+                        <input type="email" id="email" name="Email" class="form-input" required>
+                    </div>
+                    <div class="form-group form-group-span-2">
+                        <label class="form-label">How will you be working?</label>
+                        <div class="form-radio-group">
+                            <label class="form-radio-label">
+                                <input type="radio" name="Work Type" value="Team" required> Team
+                            </label>
+                            <label class="form-radio-label">
+                                <input type="radio" name="Work Type" value="Individual" required> Individual
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-span-2">
+                        <label for="projectInterest" class="form-label">Project of Interest</label>
+                        <select id="projectInterest" name="Project Interest" class="form-select" required>
+                            <option value="">Select a Project</option>
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <button type="submit" class="btn-submit">
+                        Submit Interest
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- CTA -->
+        <footer class="footer">
+            <h2 class="card-title">🚀 Ready to Build the Future with AI?</h2>
+            <p style="margin-bottom: 1.5rem;">Submit your interest via our official project onboarding form or contact your faculty coordinator for project allocation details.</p>
+            <p style="color: #6b7280;">For queries, reach out to us at: <a href="mailto:connect@finstreetaccelerator.com" class="footer-link">connect@finstreetaccelerator.com</a></p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- CONFIGURATION & CONSTANTS ---
+            const THUMBNAIL_COLORS = [
+                'linear-gradient(to bottom right, #3b82f6, #6366f1)', 
+                'linear-gradient(to bottom right, #10b981, #2dd4bf)',
+                'linear-gradient(to bottom right, #8b5cf6, #ec4899)', 
+                'linear-gradient(to bottom right, #f59e0b, #f97316)',
+                'linear-gradient(to bottom right, #ef4444, #f43f5e)', 
+                'linear-gradient(to bottom right, #06b6d4, #22d3ee)',
+                'linear-gradient(to bottom right, #84cc16, #a3e635)', 
+                'linear-gradient(to bottom right, #d946ef, #a855f7)'
+            ];
+            
+            // --- PROJECT DATA ---
+            // To edit, add, or remove projects, modify this array directly.
+            const projects = [
+                { id: 1, uid: 'PRJ-1001', title: 'AI-Powered Lead Generation & Qualification Bot', objective: 'Build an AI chatbot integrated with WhatsApp/Instagram to engage, capture, and qualify leads.', deliverables: ['Chatbot to collect Name, Course/Service Interest, Contact Details', 'Auto-replies to FAQs using AI (OpenAI or Gemini)', 'Google Sheet/Airtable Integration'], tools: ['n8n (self-hosted)', 'WhatsApp Cloud API', 'Instagram Messaging API', 'Gemini/OpenAI'], longTermScope: 'Advanced lead scoring + CRM integration for conversion funneling.' },
+                { id: 2, uid: 'PRJ-1002', title: 'AI-Based Course Recommender System', objective: 'Create an intelligent recommendation engine for exam selection based on user profile.', deliverables: ['Smart form/chatbot to collect education, career goals, timeline, and budget', 'AI-driven course suggestion with a downloadable PDF report'], tools: ['Google Forms', 'n8n', 'Gemini/OpenAI', 'Telegram/Instagram Chat APIs'], longTermScope: 'Link with enrollment flows + use past recommendation data to improve AI suggestions.' },
+                { id: 3, uid: 'PRJ-1003', title: 'Self-Assessment & Evaluation Tool for Students', objective: 'Enable learners to take AI-evaluated mock tests before sign-up.', deliverables: ['Diagnostic test builder (Reading, Listening, Writing)', 'AI-based evaluation for written answers', 'Auto-generated feedback with improvement tips'], tools: ['Google Forms', 'n8n', 'Gemini/OpenAI', 'Email delivery systems'], longTermScope: 'Build student dashboards with progress reports and smart revision suggestions.' },
+                { id: 4, uid: 'PRJ-1004', title: 'Central Automation Dashboard for Internal Operations', objective: 'Automate daily manual tasks like lead tracking, content posting, reporting, etc.', deliverables: ['Task automation flows (e.g. Google Sheet → Email → Telegram notifications)', 'Visual dashboard for status monitoring', 'Failure alerts via email or Telegram'], tools: ['n8n (Docker-based)', 'Google Workspace API', 'Telegram Bots'], longTermScope: 'Serve as internal RPA layer across all future verticals of the company.' },
+                { id: 5, uid: 'PRJ-1005', title: 'AI Content Engine for Educational & Marketing Content', objective: 'Build a GenAI-powered pipeline to create educational videos and social content.', deliverables: ['Create content prompts → AI rewrite → AI voiceover → Image/Video generation', 'Auto-publish workflow via APIs'], tools: ['Gemini/OpenAI', 'Pictory.ai / VEED', 'ElevenLabs', 'Zapier/n8n'], longTermScope: 'Fully automated educational channel creation for faceless content marketing.' },
+                { id: 6, uid: 'PRJ-1006', title: 'Viral Trend Discovery Engine', objective: 'Discover viral trends, keywords, and content formats for Instagram content.', deliverables: ['System to surface viral keywords, hashtags, and reel formats.', 'AI-generated content prompts and ideas.', 'Dashboard/report for content team metrics.'], tools: ['Social Media APIs', 'Web Scraping Tools', 'n8n/Zapier', 'Gemini/OpenAI', 'Airtable'], longTermScope: 'Expand to monitor competitor activity, analyze sentiment, and integrate with scheduling tools.' },
+                { id: 7, uid: 'PRJ-1007', title: 'AI-Driven Student Feedback Analyzer', objective: 'Analyze student feedback across courses to identify key pain points and praise areas.', deliverables: ['Feedback form connected to analytics dashboard', 'Sentiment analysis with highlight tagging', 'AI-generated improvement suggestions'], tools: ['Google Forms', 'n8n', 'Gemini/OpenAI', 'Google Data Studio'], longTermScope: 'Real-time student feedback loop integrated into course design workflow.' },
+                { id: 8, uid: 'PRJ-1008', title: 'WhatsApp Notification Engine for Batch Updates', objective: 'Notify students about class updates, deadlines, or offers through automated WhatsApp flows.', deliverables: ['Build messaging flow templates (batch start, mock test alerts, offer alerts)', 'Connect to Google Sheets/Airtable for bulk contact lists', 'Send via WhatsApp Cloud API'], tools: ['n8n', 'WhatsApp Cloud API', 'Google Sheets', 'Meta Business Suite'], longTermScope: 'Multi-platform engagement automation engine (WhatsApp, Telegram, Email).'},
+                { id: 9, uid: 'PRJ-1009', title: 'Internship Tracker and Certificate Issuer', objective: 'Track intern progress across projects and issue auto-generated certificates.', deliverables: ['Progress update form with backend log', 'PDF certificate generator using dynamic data', 'Email delivery of certificates on completion'], tools: ['Google Forms', 'Google Apps Script', 'n8n', 'PDF Generator API'], longTermScope: 'Institutionalize internship programs with automated backend.' },
+                { id: 10, uid: 'PRJ-1010', title: 'Telegram-Based Daily News Digest for BFSI Exams', objective: 'Scrape BFSI news, summarize, and send daily digest to Telegram group for students.', deliverables: ['Daily trigger + news scraping', 'AI summarizer', 'Google Sheet record + Telegram bot delivery'], tools: ['n8n', 'Gemini/OpenAI', 'Telegram Bot API', 'Google Sheets'], longTermScope: 'Content delivery platform for test prep students (news, tips, quizzes).' }
+            ];
+
+            // --- DOM Elements ---
+            const projectsGrid = document.getElementById('projectsGrid');
+            const projectInterestDropdown = document.getElementById('projectInterest');
+            
+            // --- FUNCTIONS ---
+            
+            /**
+             * Renders all projects from the hardcoded array into the projectsGrid.
+             */
+            const renderProjects = () => {
+                projectsGrid.innerHTML = ''; // Clear existing projects
+                
+                // Ensure projects are numbered correctly before rendering
+                projects.forEach((project, index) => {
+                    project.id = index + 1;
+                });
+
+                projects.forEach(project => {
+                    const colorStyle = THUMBNAIL_COLORS[(project.id - 1) % THUMBNAIL_COLORS.length];
+
+                    const projectCard = document.createElement('div');
+                    projectCard.className = 'project-card';
+                    projectCard.innerHTML = `
+                        <div class="project-thumbnail" style="background-image: ${colorStyle};">
+                            <span class="project-thumbnail-main-text">Project ${project.id}</span>
+                            <span class="project-thumbnail-sub-text">${project.uid}</span>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">${project.title}</h3>
+                            <p style="margin-bottom: 1rem;"><strong style="color: #d1d5db;">Objective:</strong> ${project.objective}</p>
+                            <div style="margin-bottom: 1rem;">
+                                <h4 class="project-section-title">Deliverables:</h4>
+                                <ul class="project-list">
+                                    ${project.deliverables.map(d => `<li>${d}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <h4 class="project-section-title">Preferred Tools:</h4>
+                                <div class="project-tools">
+                                    ${project.tools.map(t => `<span class="tool-tag">${t}</span>`).join('')}
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="project-section-title">Long-Term Scope:</h4>
+                                <p class="project-scope">${project.longTermScope}</p>
+                            </div>
+                        </div>
+                    `;
+                    projectsGrid.appendChild(projectCard);
+                });
+            };
+            
+            /**
+             * Populates the Project Number dropdown with available projects.
+             */
+            const populateProjectDropdown = () => {
+                projectInterestDropdown.innerHTML = '<option value="">Select a Project</option>';
+                projects.forEach(project => {
+                    const option = document.createElement('option');
+                    option.value = `Project ${project.id} (${project.uid})`;
+                    option.textContent = `Project ${project.id}: ${project.title}`;
+                    projectInterestDropdown.appendChild(option);
+                });
+            };
+
+            // --- INITIALIZATION ---
+            renderProjects(); 
+            populateProjectDropdown();
+        });
+    </script>
 </body>
-
 </html>
